@@ -27,26 +27,35 @@ public:
 	void Push(const T& data);
 	T Pop();
 };
+
+// Stack
 template<class T>
 Stack<T>::Stack(int stackCapacity) : capacity(stackCapacity) {
 	if (capacity < 1) throw "Stack capacity must be > 0";
 	stack = new T[capacity];
 	top = -1;
 }
+
+// ~Stack
 template<class T>
 Stack<T>::~Stack() {
 	delete[] stack;
 	top = capacity = 0;
 }
+// IsEmpty
 template<class T>
 bool Stack<T>::IsEmpty() const {
 	return top == -1;
 }
+
+// Top
 template<class T>
 T& Stack<T>::Top() const {
 	if (IsEmpty()) throw"Stack is empty!";
 	return stack[top];
 }
+
+// Push
 template<class T>
 void Stack<T>::Push(const T & data) {
 	if (top == capacity - 1) {
@@ -55,6 +64,8 @@ void Stack<T>::Push(const T & data) {
 	}
 	stack[++top] = data;
 }
+
+// Pop
 template<class T>
 T Stack<T>:: Pop() {
 	if (IsEmpty()) throw "Stack is empty. Cannot delete.";
@@ -80,4 +91,4 @@ int main()
 	}
 	*/
 }
-
+	
