@@ -20,37 +20,48 @@ private:
 	int top;
 	int capacity;
 public:
-	Stack(int stackCapacity) : capacity(stackCapacity) {
-		if (capacity < 1) throw "Stack capacity must be > 0";
-		stack = new T[capacity];
-		top = -1;
-	}
-	~Stack() {
-		delete[] stack;
-		top = capacity = 0;
-	}
-	bool IsEmpty() const{
-		return top == -1;
-	}
-	T& Top() const {
-		if (IsEmpty()) throw"Stack is empty!";
-		return stack[top];
-	}
-	void Push(const T & data) {
-		if (top == capacity - 1) {
-			ChangeSize1D(stack, capacity, 2 * capacity);
-			capacity *= 2;
-		}
-		stack[++top] = data;
-	}
-	T Pop() {
-		if (IsEmpty()) throw "Stack is empty. Cannot delete.";
-		T t = Top();
-		stack[top--].~T();
-		return t;
-	}
+	Stack(int stackCapacity);
+	~Stack();
+	bool IsEmpty() const;
+	T& Top() const;
+	void Push(const T& data);
+	T Pop();
 };
-
+template<class T>
+Stack<T>::Stack(int stackCapacity) : capacity(stackCapacity) {
+	if (capacity < 1) throw "Stack capacity must be > 0";
+	stack = new T[capacity];
+	top = -1;
+}
+template<class T>
+Stack<T>::~Stack() {
+	delete[] stack;
+	top = capacity = 0;
+}
+template<class T>
+bool Stack<T>::IsEmpty() const {
+	return top == -1;
+}
+template<class T>
+T& Stack<T>::Top() const {
+	if (IsEmpty()) throw"Stack is empty!";
+	return stack[top];
+}
+template<class T>
+void Stack<T>::Push(const T & data) {
+	if (top == capacity - 1) {
+		ChangeSize1D(stack, capacity, 2 * capacity);
+		capacity *= 2;
+	}
+	stack[++top] = data;
+}
+template<class T>
+T Stack<T>:: Pop() {
+	if (IsEmpty()) throw "Stack is empty. Cannot delete.";
+	T t = Top();
+	stack[top--].~T();
+	return t;
+}
 
 int main()
 {
