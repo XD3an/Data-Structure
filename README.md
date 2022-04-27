@@ -9,3 +9,4 @@ Data structure implementation using c++
   * Heap
     * Min Heap
     * Max Heap
+* Graph
