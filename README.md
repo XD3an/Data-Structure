@@ -10,3 +10,5 @@ Data structure implementation using c++
     * Min Heap
     * Max Heap
 * Graph
+* Sorting
+
