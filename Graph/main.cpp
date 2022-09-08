@@ -495,8 +495,11 @@ void Enter() {
 }
 
 int main() {
+        // test
+        /*
 	UnW_Graph<int> ug;
 	W_Graph<int> wg;	
 	ug.Build();
 	wg.Build();
+        */
 }
