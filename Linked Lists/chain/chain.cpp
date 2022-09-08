@@ -118,6 +118,7 @@ void chain<T>::Insert(int theIndex, const T& theElement) {
 
 int main()
 {
+    // test
     /*
     chain<int> l;
     cout << l.IsEmpty() << endl;
