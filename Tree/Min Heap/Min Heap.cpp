@@ -77,6 +77,8 @@ T MinHeap<T>::top() {                       // Returnning the top data.
 
 int main()
 {
+    // test
+    /*
     MinHeap<int> heap;
     for (int i = 0; i < 1; i++) {
         heap.push(10);
@@ -93,5 +95,6 @@ int main()
         heap.push(16);
         cout << "top : " << heap.top() << endl << endl;
     }
+    */
     return 0;
 }
