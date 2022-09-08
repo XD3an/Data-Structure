@@ -76,6 +76,8 @@ T MaxHeap<T>::top() {                                                   // Retur
 
 int main()
 {
+    // test
+    /*
     MaxHeap<int> heap;
     for (int i = 0; i < 1; i++) {
         heap.push(10);
@@ -92,6 +94,6 @@ int main()
         heap.push(16);
         cout << "top : " << heap.top() << endl << endl;
     }
-
+    */
     return 0;
 }
