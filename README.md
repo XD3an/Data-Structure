@@ -12,4 +12,4 @@ Data structure implementation using c++
 * Graph
 * Sorting
 ---
-* Some program in main are commented out.
+* Some code in main are commented out.
