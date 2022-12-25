@@ -11,5 +11,3 @@ Data structure implementation using c++
     * Max Heap
 * Graph
 * Sorting
----
-* Some codes in main are commented out.
