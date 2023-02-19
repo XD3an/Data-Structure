@@ -1,11 +1,13 @@
 ﻿#include <iostream>
 #include <string.h>
 using namespace std;
+
 template<class T>
 class chain;
 
 template<class T>
-class chainNode {
+class chainNode 
+{
     friend class chain<T>;
 private:
     T data;
@@ -17,19 +19,22 @@ public:
 };
 
 template<class T>
-chainNode<T>::chainNode(){
+chainNode<T>::chainNode()
+{
     data = -1;     // default
     link = NULL;
 }
 
 template<class T>
-chainNode<T>::chainNode(const T& data) {
+chainNode<T>::chainNode(const T& data) 
+{
     this->data = data;
     this->link = NULL;
 }
 
 template<class T>
-chainNode<T>::chainNode(const T& data, chainNode<T>* link) {
+chainNode<T>::chainNode(const T& data, chainNode<T>* link) 
+{
     this->data = data;
     this->link = link;
 }
@@ -50,21 +55,25 @@ public:
 };
 
 template<class T>
-chain<T>::chain() {
+chain<T>::chain() 
+{
     first = new chainNode<T>();
 }
 template<class T>
-chain<T>::chain(const T& data) {
+chain<T>::chain(const T& data) 
+{
     first = new chainNode<T>(data);
 }
 
 template<class T>
-chain<T>::chain(const T& data, chainNode<T>* link) {
+chain<T>::chain(const T& data, chainNode<T>* link) 
+{
     first = new chainNode<T>(data, link);
 }
 
 template<class T>
-chain<T> ::~chain(){
+chain<T> ::~chain()
+{
     while (first != NULL) {
         chainNode<T>* next = first->link;
         delete first;
@@ -73,15 +82,18 @@ chain<T> ::~chain(){
 }
 
 template<class T>
-bool chain<T>::IsEmpty() const {
+bool chain<T>::IsEmpty() const 
+{
     return first == NULL;
 }
 
 template<class T>
-int chain<T>::IndexOf(const T& theElement) const {
+int chain<T>::IndexOf(const T& theElement) const 
+{
     chainNode<T>* currentNode = first;
     int index = 0;
-    while (currentNode->data != theElement) {
+    while (currentNode->data != theElement) 
+    {
         currentNode = currentNode->link;
         index++;
     }
@@ -90,15 +102,19 @@ int chain<T>::IndexOf(const T& theElement) const {
 }
 
 template<class T>
-void chain<T>::Delete(int theIndex) {
+void chain<T>::Delete(int theIndex) 
+{
     chainNode<T>* deleteNode;
-    if (theIndex == 0) {
+    if (theIndex == 0) 
+    {
         deleteNode = first;
         first = first->link;
     }
-    else {
+    else 
+    {
         chainNode<T> *temp = first;
-        for (int i = 1; i < theIndex; i++) {
+        for (int i = 1; i < theIndex; i++) 
+        {
             temp = temp->link;
         }
         deleteNode = temp->link;
@@ -106,28 +122,30 @@ void chain<T>::Delete(int theIndex) {
     }
     delete deleteNode;
 }
+
 template<class T>
-void chain<T>::Insert(int theIndex, const T& theElement) {
+void chain<T>::Insert(int theIndex, const T& theElement) 
+{
     if (theIndex == 0) first = new chainNode<T>(theElement);
     chainNode<T>* temp = first;
-    for (int i = 1; i < theIndex; i++) {
+    for (int i = 1; i < theIndex; i++)
         temp = temp->link;
-    }
     temp->link = new chainNode<T>(theElement, temp->link);
 }
 
 int main()
 {
     // test
-    /*
     chain<int> l;
-    cout << l.IsEmpty() << endl;
-    l.Insert(0, 0);
-    cout << l.IsEmpty() << endl;
+
+    // Insert
+    cout << "Insert:\n";
     l.Insert(1, 1);
     l.Insert(2, 2);
     cout << l.IndexOf(2) << endl;
+    
+    // Delete
+    cout << "Delete:\n";
     l.Delete(1);
     cout << l.IndexOf(2) << endl;
-    */
 }
