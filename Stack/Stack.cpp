@@ -4,7 +4,8 @@ using namespace std;
 
 // ChangeSize1D
 template<class T>
-void ChangeSize1D(T*& a, const int oldSize, const int newSize) {
+void ChangeSize1D(T*& a, const int oldSize, const int newSize) 
+{
 	//if (newSize < 0) throw"New length must be >= 0";
 	T* temp = new T[newSize];
 	int number = min(oldSize, newSize);
@@ -14,7 +15,8 @@ void ChangeSize1D(T*& a, const int oldSize, const int newSize) {
 }
 
 template<class T>
-class Stack {
+class Stack 
+{
 private:
 	T* stack;
 	int top;
@@ -30,7 +32,8 @@ public:
 
 // Stack
 template<class T>
-Stack<T>::Stack(int stackCapacity) : capacity(stackCapacity) {
+Stack<T>::Stack(int stackCapacity) : capacity(stackCapacity) 
+{
 	if (capacity < 1) throw "Stack capacity must be > 0";
 	stack = new T[capacity];
 	top = -1;
@@ -38,27 +41,32 @@ Stack<T>::Stack(int stackCapacity) : capacity(stackCapacity) {
 
 // ~Stack
 template<class T>
-Stack<T>::~Stack() {
+Stack<T>::~Stack() 
+{
 	delete[] stack;
 	top = capacity = 0;
 }
 // IsEmpty
 template<class T>
-bool Stack<T>::IsEmpty() const {
+bool Stack<T>::IsEmpty() const 
+{
 	return top == -1;
 }
 
 // Top
 template<class T>
-T& Stack<T>::Top() const {
+T& Stack<T>::Top() const 
+{
 	if (IsEmpty()) throw"Stack is empty!";
 	return stack[top];
 }
 
 // Push
 template<class T>
-void Stack<T>::Push(const T & data) {
-	if (top == capacity - 1) {
+void Stack<T>::Push(const T & data) 
+{
+	if (top == capacity - 1) 
+	{
 		ChangeSize1D(stack, capacity, 2 * capacity);
 		capacity *= 2;
 	}
@@ -67,7 +75,8 @@ void Stack<T>::Push(const T & data) {
 
 // Pop
 template<class T>
-T Stack<T>:: Pop() {
+T Stack<T>:: Pop() 
+{
 	if (IsEmpty()) throw "Stack is empty. Cannot delete.";
 	T t = Top();
 	stack[top--].~T();
@@ -77,18 +86,24 @@ T Stack<T>:: Pop() {
 int main()
 {
 	// test
-	/*
 	int n;
+	// Input
+	cout << "Size:";
 	cin >> n;
 	Stack<int> a(n);
-	for (int i = 0; i < n; i++) {
+	for (int i = 0; i < n; i++) 
+	{
 		int x;
 		cin >> x;
 		a.Push(x);
 	}
-	for (int i = 0; i < n; i++) {
+
+	// Ouput
+	cout << "Stack: \n";
+	for (int i = 0; i < n; i++) 
+	{
 		cout << a.Pop() << endl;
 	}
-	*/
+	return 0;
 }
 	
